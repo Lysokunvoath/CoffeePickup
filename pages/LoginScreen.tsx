@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-export default function SignupScreen() {
+export default function LoginScreen({ navigation }: { navigation: any }) {
   return (
     <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.container}>
       <View style={styles.card}>
@@ -31,7 +31,7 @@ export default function SignupScreen() {
                 <View style={styles.option}>
                     <Text style={styles.optionTitle}>Customer</Text>
                     <Text style={styles.optionSubtitle}>Browse shops, order ahead, track pickup.</Text>
-                    <TouchableOpacity style={styles.signInButton}>
+                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
                         <Text style={styles.signInButtonText}>Sign in as Customer</Text>
                     </TouchableOpacity>
                 </View>
@@ -89,64 +89,67 @@ export default function SignupScreen() {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FDF9F3', // Light cream background
   },
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 10,
   },
   card: {
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    padding: 20,
+    padding: 25,
     width: '100%',
     maxWidth: 400,
-    alignItems: 'center',
     marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 3.84,
+    shadowRadius: 15,
     elevation: 5,
   },
   logoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     marginBottom: 20,
   },
   logoBackground: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#6F4E37',
+    width: 45,
+    height: 45,
+    borderRadius: 22.5,
+    backgroundColor: '#A0522D', // Sienna brown
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
+    marginRight: 12,
   },
   logoLetter: {
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
   },
   logoText: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#333',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: '#333',
   },
   subtitle: {
     fontSize: 16,
     color: '#666',
     textAlign: 'center',
     marginBottom: 10,
+    lineHeight: 24,
   },
   imageCard: {
     backgroundColor: '#FFFFFF',
@@ -156,35 +159,37 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 3.84,
+    shadowRadius: 15,
     elevation: 5,
     overflow: 'hidden',
     marginBottom: 20,
   },
   coffeeImage: {
     width: '100%',
-    height: 200,
+    height: 180,
     resizeMode: 'cover',
   },
   imageTextContainer: {
-    padding: 15,
+    padding: 20,
   },
   imageCardText: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: 15,
+    color: '#555',
     textAlign: 'center',
+    lineHeight: 22,
   },
   continueAsContainer: {
     width: '100%',
   },
   continueAsTitle: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 25,
     textAlign: 'left',
+    color: '#333',
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -193,29 +198,33 @@ const styles = StyleSheet.create({
   },
   option: {
     width: '48%',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F8F8F8',
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
     alignItems: 'center',
+    borderColor: '#E0E0E0',
+    borderWidth: 1,
   },
   optionTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 8,
+    color: '#444',
   },
   optionSubtitle: {
-    fontSize: 12,
-    color: '#666',
+    fontSize: 13,
+    color: '#777',
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: 20,
     height: 40,
+    lineHeight: 18,
   },
   signInButton: {
-    backgroundColor: '#8B4513',
-    paddingVertical: 12,
+    backgroundColor: '#A0522D', // Sienna brown
+    paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 25,
+    borderRadius: 30,
     width: '100%',
     alignItems: 'center',
   },
@@ -226,61 +235,69 @@ const styles = StyleSheet.create({
   },
   aboutButton: {
     backgroundColor: '#F5E5D5',
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 25,
+    borderRadius: 30,
     width: '100%',
     alignItems: 'center',
   },
   aboutButtonText: {
-    color: '#8B4513',
+    color: '#A0522D', // Sienna brown
     fontSize: 14,
     fontWeight: 'bold',
   },
   orText: {
     fontSize: 16,
-    color: '#666',
-    marginVertical: 10,
+    color: '#888',
+    marginVertical: 15,
+    fontWeight: 'bold',
   },
   continueButton: {
     backgroundColor: '#FFFFFF',
-    paddingVertical: 15,
+    paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 30,
     width: '100%',
     alignItems: 'center',
     marginBottom: 15,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
+    borderWidth: 1.5,
+    borderColor: '#D3D3D3',
   },
   continueButtonText: {
-    color: '#000000',
+    color: '#333',
     fontSize: 16,
+    fontWeight: '500',
   },
   secureCheckoutTitle: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 15,
     alignSelf: 'flex-start',
+    color: '#333',
   },
   secureCheckoutSubtitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#666',
     marginBottom: 20,
     alignSelf: 'flex-start',
+    lineHeight: 22,
   },
   tagsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
     width: '100%',
   },
   tag: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#EFEFEF',
     borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 18,
+    marginRight: 10,
+    marginBottom: 10,
   },
   tagText: {
-    fontSize: 12,
+    fontSize: 13,
+    color: '#555',
   },
 });
