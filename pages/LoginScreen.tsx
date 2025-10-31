@@ -28,31 +28,31 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
         <View style={styles.continueAsContainer}>
             <Text style={styles.continueAsTitle}>Continue as</Text>
             <View style={styles.optionsContainer}>
-                <View style={styles.option}>
+                <View style={styles.option} key="customer">
                     <Text style={styles.optionTitle}>Customer</Text>
                     <Text style={styles.optionSubtitle}>Browse shops, order ahead, track pickup.</Text>
                     <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
                         <Text style={styles.signInButtonText}>Sign in as Customer</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.option}>
+                <View style={styles.option} key="owner">
                     <Text style={styles.optionTitle}>Coffee Shop Owner</Text>
                     <Text style={styles.optionSubtitle}>Manage menu, accept orders, payouts.</Text>
-                    <TouchableOpacity style={styles.signInButton}>
+                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
                         <Text style={styles.signInButtonText}>Sign in as Owner</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.option}>
+                <View style={styles.option} key="admin">
                     <Text style={styles.optionTitle}>Admin</Text>
                     <Text style={styles.optionSubtitle}>Monitor performance, users, and shops.</Text>
-                    <TouchableOpacity style={styles.signInButton}>
+                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
                         <Text style={styles.signInButtonText}>Sign in as Admin</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.option}>
+                <View style={styles.option} key="payway">
                     <Text style={styles.optionTitle}>PayWay Linked</Text>
                     <Text style={styles.optionSubtitle}>Secure payments and receipts.</Text>
-                    <TouchableOpacity style={styles.aboutButton}>
+                    <TouchableOpacity style={styles.aboutButton} onPress={() => navigation.navigate('CusHome')}>
                         <Text style={styles.aboutButtonText}>About PayWay</Text>
                     </TouchableOpacity>
                 </View>
@@ -63,10 +63,10 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
       <Text style={styles.orText}>Or</Text>
 
       <View style={styles.card}>
-        <TouchableOpacity style={styles.continueButton}>
+        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('CusHome')}>
             <Text style={styles.continueButtonText}>Continue with phone</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.continueButton}>
+        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('CusHome')}>
             <Text style={styles.continueButtonText}>Continue with email link</Text>
         </TouchableOpacity>
       </View>

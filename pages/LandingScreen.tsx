@@ -13,12 +13,12 @@ export default function LandingScreen({ navigation }: { navigation: any }) {
         <Text style={styles.title}>Pick up better coffee</Text>
         <Text style={styles.subtitle}>Order ahead, skip the line, and get on with your day.</Text>
 
-        <TouchableOpacity style={styles.getStartedButton}>
-          <Text style={styles.getStartedButtonText}> Get Started</Text>
+        <TouchableOpacity style={styles.getStartedButton} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.getStartedButtonText}>Sign up</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.loginButtonText}>Log in</Text>
+          <Text style={styles.loginButtonText}>Sign in</Text>
         </TouchableOpacity>
       </View>
 

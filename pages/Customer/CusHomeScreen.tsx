@@ -8,25 +8,25 @@ const coffeeShops = [
     rating: 4.7,
     type: 'Espresso, Pastries',
     time: '6-10 min',
-    image: require('../assets/image.png'), 
+    image: require('../../assets/image.png'), 
   },
   {
     name: 'Roast Republic',
     rating: 4.6,
     type: 'Cold brew, Croissants',
     time: 'Ready ~8 min',
-    image: require('../assets/image.png'), 
+    image: require('../../assets/image.png'), 
   },
   {
     name: 'Corner Cup',
     rating: 4.8,
     type: 'Drip, Sandwiches',
     time: '~5 min',
-    image: require('../assets/image.png'), 
+    image: require('../../assets/image.png'), 
   },
 ];
 
-export default function CusHomeScreen() {
+export default function CusHomeScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -60,16 +60,15 @@ export default function CusHomeScreen() {
       </View>
 
       <View style={styles.tabBar}>
-        <TouchableOpacity style={styles.tabItem}>
+        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Menu')}>
           <Feather name="coffee" size={24} color="#8B4513" />
           <Text style={styles.tabText}>Browse</Text>
-          for i in sh
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}>
+        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Pay')}>
           <MaterialIcons name="payment" size={24} color="#8B4513" />
           <Text style={styles.tabText}>Pay (PayWay)</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}>
+        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Pickup')}>
           <Feather name="clock" size={24} color="#8B4513" />
           <Text style={styles.tabText}>Pickup</Text>
         </TouchableOpacity>
@@ -91,10 +90,10 @@ export default function CusHomeScreen() {
               <Text style={styles.shopTime}>{shop.time}</Text>
             </View>
             <View style={styles.shopButtons}>
-              <TouchableOpacity style={styles.viewMenuButton}>
+              <TouchableOpacity style={styles.viewMenuButton} onPress={() => navigation.navigate('Menu')}>
                 <Text style={styles.viewMenuButtonText}>View Menu</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.orderButton}>
+              <TouchableOpacity style={styles.orderButton} onPress={() => navigation.navigate('Menu')}>
                 <Text style={styles.orderButtonText}>Order</Text>
               </TouchableOpacity>
             </View>
