@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const ItemCustomize = ({ route, navigation }) => {
+const ItemCustomize = ({ route, navigation }:{route:any, navigation:any}) => {
   const { item } = route.params;
   const [size, setSize] = useState('Medium');
   const [milk, setMilk] = useState('Whole');
   const [sweetness, setSweetness] = useState('50%');
   const [ice, setIce] = useState('Regular');
-  const [addons, setAddons] = useState([]);
+  const [addons, setAddons] = useState<string[]>([]);
   const [quantity, setQuantity] = useState(1);
 
-  const addonPrices = {
+  const addonPrices: { [key: string]: number } = {
     'Extra Shot': 1.00,
     'Vanilla Syrup': 0.60,
     'Caramel Drizzle': 0.60,
@@ -27,7 +27,7 @@ const ItemCustomize = ({ route, navigation }) => {
     return (total * quantity).toFixed(2);
   };
 
-  const toggleAddon = (addon) => {
+  const toggleAddon = (addon: string) => {
     if (addons.includes(addon)) {
       setAddons(addons.filter(a => a !== addon));
     } else {
@@ -140,7 +140,7 @@ const ItemCustomize = ({ route, navigation }) => {
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Text style={styles.backButtonText}>Back</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Cart')}>
           <Text style={styles.addButtonText}>Add to cart - ${calculateTotal()}</Text>
         </TouchableOpacity>
       </View>

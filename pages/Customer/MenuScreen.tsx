@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, TextInput } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
-const menu = {
+interface MenuItemType {
+  name: string;
+  description: string;
+  price: number;
+  image: any;
+}
+
+const menu: { [key: string]: MenuItemType[] } = {
   'Popular drinks': [
     {
       name: 'Iced Latte',
@@ -39,7 +46,7 @@ const menu = {
   ],
 };
 
-const MenuItem = ({ item, navigation }) => {
+const MenuItem = ({ item, navigation }: { item: MenuItemType, navigation: any }) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate('ItemCustomize', { item })}>
       <View style={styles.menuItem}>
@@ -54,7 +61,7 @@ const MenuItem = ({ item, navigation }) => {
   );
 };
 
-export default function MenuScreen({ navigation }) {
+export default function MenuScreen({ navigation }: { navigation: any }) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>

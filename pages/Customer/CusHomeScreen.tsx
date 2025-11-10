@@ -26,81 +26,96 @@ const coffeeShops = [
   },
 ];
 
-export default function CusHomeScreen({ navigation }) {
+export default function CusHomeScreen({ navigation }: { navigation: any }) {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <View style={styles.logoBackground}>
-            <Text style={styles.logoLetter}>C</Text>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            <View style={styles.logoBackground}>
+              <Text style={styles.logoLetter}>C</Text>
+            </View>
+            <Text style={styles.headerTitle}>Coffee Pickup</Text>
           </View>
-          <Text style={styles.headerTitle}>Coffee Pickup</Text>
+          <View style={styles.headerRight}>
+            <Feather name="user" size={24} color="black" />
+            <Text style={styles.customerText}>Customer</Text>
+          </View>
         </View>
-        <View style={styles.headerRight}>
-          <Feather name="user" size={24} color="black" />
-          <Text style={styles.customerText}>Customer</Text>
-        </View>
-      </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Nearby coffee shops</Text>
-        <View style={styles.locationButtons}>
-          <TouchableOpacity style={styles.locationButton}>
-            <MaterialIcons name="my-location" size={20} color="#8B4513" />
-            <Text style={styles.locationButtonText}>Use current location</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.searchButton}>
-            <Feather name="search" size={20} color="#8B4513" />
-            <Text style={styles.searchButtonText}>Search shops</Text>
-          </TouchableOpacity>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Nearby coffee shops</Text>
+          <View style={styles.locationButtons}>
+            <TouchableOpacity style={styles.locationButton}>
+              <MaterialIcons name="my-location" size={20} color="#8B4513" />
+              <Text style={styles.locationButtonText}>Use current location</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.searchButton}>
+              <Feather name="search" size={20} color="#8B4513" />
+              <Text style={styles.searchButtonText}>Search shops</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.mapPlaceholder}>
+            <Text>Map Placeholder</Text>
+          </View>
         </View>
-        <View style={styles.mapPlaceholder}>
-          <Text>Map Placeholder</Text>
-        </View>
-      </View>
 
-      <View style={styles.tabBar}>
-        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Menu')}>
-          <Feather name="coffee" size={24} color="#8B4513" />
-          <Text style={styles.tabText}>Browse</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Pay')}>
-          <MaterialIcons name="payment" size={24} color="#8B4513" />
-          <Text style={styles.tabText}>Pay (PayWay)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem} onPress={() => navigation.navigate('Pickup')}>
-          <Feather name="clock" size={24} color="#8B4513" />
-          <Text style={styles.tabText}>Pickup</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.popularSection}>
-        <Text style={styles.popularTitle}>Popular nearby</Text>
-        {coffeeShops.map((shop, index) => (
-          <View key={index} style={styles.shopCard}>
-            <Image source={shop.image} style={styles.shopImage} />
-            <View style={styles.shopInfo}>
-              <Text style={styles.shopName}>{shop.name}</Text>
-              <View style={styles.ratingContainer}>
-                <Feather name="star" size={16} color="#FFD700" />
-                <Text style={styles.ratingText}>{shop.rating} • {shop.type}</Text>
+        <View style={styles.popularSection}>
+          <Text style={styles.popularTitle}>Popular nearby</Text>
+          {coffeeShops.map((shop, index) => (
+            <View key={index} style={styles.shopCard}>
+              <Image source={shop.image} style={styles.shopImage} />
+              <View style={styles.shopInfo}>
+                <Text style={styles.shopName}>{shop.name}</Text>
+                <View style={styles.ratingContainer}>
+                  <Feather name="star" size={16} color="#FFD700" />
+                  <Text style={styles.ratingText}>
+                    {shop.rating} • {shop.type}
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.shopTimeContainer}>
+                <Text style={styles.shopTime}>{shop.time}</Text>
+              </View>
+              <View style={styles.shopButtons}>
+                <TouchableOpacity
+                  style={styles.viewMenuButton}
+                  onPress={() => navigation.navigate('Menu')}
+                >
+                  <Text style={styles.viewMenuButtonText}>View Menu</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.orderButton}
+                  onPress={() => navigation.navigate('Menu')}
+                >
+                  <Text style={styles.orderButtonText}>Order</Text>
+                </TouchableOpacity>
               </View>
             </View>
-            <View style={styles.shopTimeContainer}>
-              <Text style={styles.shopTime}>{shop.time}</Text>
-            </View>
-            <View style={styles.shopButtons}>
-              <TouchableOpacity style={styles.viewMenuButton} onPress={() => navigation.navigate('Menu')}>
-                <Text style={styles.viewMenuButtonText}>View Menu</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.orderButton} onPress={() => navigation.navigate('Menu')}>
-                <Text style={styles.orderButtonText}>Order</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        ))}
+          ))}
+        </View>
+      </ScrollView>
+      <View style={styles.bottomNavBar}>
+        <TouchableOpacity
+          style={styles.navBarItem}
+          onPress={() => navigation.navigate('CusHome')}
+        >
+          <Feather name="home" size={24} color="#8B4513" />
+          <Text style={styles.navBarText}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.navBarItem}
+          onPress={() => navigation.navigate('Cart')}
+        >
+          <Feather name="shopping-cart" size={24} color="#8B4513" />
+          <Text style={styles.navBarText}>Cart</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navBarItem}>
+          <Feather name="user" size={24} color="#8B4513" />
+          <Text style={styles.navBarText}>Profile</Text>
+        </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -278,5 +293,20 @@ const styles = StyleSheet.create({
   orderButtonText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
+  },
+  bottomNavBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#E0E0E0',
+  },
+  navBarItem: {
+    alignItems: 'center',
+  },
+  navBarText: {
+    fontSize: 12,
+    color: '#8B4513',
   },
 });
