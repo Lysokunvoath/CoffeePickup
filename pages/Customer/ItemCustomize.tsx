@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useCart } from '../../App';
+
 const ItemCustomize = ({ route, navigation }:{route:any, navigation:any}) => {
   const { item } = route.params;
   const [size, setSize] = useState('Medium');
@@ -10,6 +12,7 @@ const ItemCustomize = ({ route, navigation }:{route:any, navigation:any}) => {
   const [ice, setIce] = useState('Regular');
   const [addons, setAddons] = useState<string[]>([]);
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const addonPrices: { [key: string]: number } = {
     'Extra Shot': 1.00,
@@ -25,6 +28,20 @@ const ItemCustomize = ({ route, navigation }:{route:any, navigation:any}) => {
       total += addonPrices[addon];
     });
     return (total * quantity).toFixed(2);
+  };
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      id: new Date().toISOString(),
+      name: item.name,
+      price: parseFloat(calculateTotal()),
+      quantity,
+      size,
+      milk,
+      ice,
+    };
+    addToCart(cartItem);
+    navigation.navigate('Cart');
   };
 
   const toggleAddon = (addon: string) => {
@@ -140,7 +157,7 @@ const ItemCustomize = ({ route, navigation }:{route:any, navigation:any}) => {
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Text style={styles.backButtonText}>Back</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Cart')}>
+        <TouchableOpacity style={styles.addButton} onPress={handleAddToCart}>
           <Text style={styles.addButtonText}>Add to cart - ${calculateTotal()}</Text>
         </TouchableOpacity>
       </View>
