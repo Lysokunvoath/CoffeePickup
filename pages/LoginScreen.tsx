@@ -38,7 +38,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
                 <View style={styles.option} key="owner">
                     <Text style={styles.optionTitle}>Coffee Shop Owner</Text>
                     <Text style={styles.optionSubtitle}>Manage menu, accept orders, payouts.</Text>
-                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
+                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('Dashboard')}>
                         <Text style={styles.signInButtonText}>Sign in as Owner</Text>
                     </TouchableOpacity>
                 </View>
@@ -89,7 +89,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#FDF9F3', // Light cream background
+    backgroundColor: '#FDF9F3', 
   },
   container: {
     alignItems: 'center',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 22.5,
-    backgroundColor: '#A0522D', // Sienna brown
+    backgroundColor: '#A0522D', 
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   signInButton: {
-    backgroundColor: '#A0522D', // Sienna brown
+    backgroundColor: '#A0522D', 
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 30,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   aboutButtonText: {
-    color: '#A0522D', // Sienna brown
+    color: '#A0522D', 
     fontSize: 14,
     fontWeight: 'bold',
   },

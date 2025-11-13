@@ -5,11 +5,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LandingScreen from './pages/LandingScreen';
 import LoginScreen from './pages/LoginScreen';
 import CusHomeScreen from './pages/Customer/CusHomeScreen';
-import MenuScreen from './pages/Customer/MenuScreen';
+import CustomerMenuScreen from './pages/Customer/MenuScreen';
 import ItemCustomize from './pages/Customer/ItemCustomize';
 import PayScreen from './pages/Customer/PayScreen';
 import PickupScreen from './pages/Customer/PickupScreen';
 import CartScreen from './pages/Customer/CartScreen';
+import Dashboard from './pages/ShopOwner/Dashboard';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,11 +61,12 @@ export default function App() {
           <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="CusHome" component={CusHomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Menu" component={MenuScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Menu" component={CustomerMenuScreen} options={{ headerShown: false }} />
           <Stack.Screen name="ItemCustomize" component={ItemCustomize} options={{ headerShown: false }} />
           <Stack.Screen name="Pay" component={PayScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Pickup" component={PickupScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Cart" component={CartScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>
