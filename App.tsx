@@ -11,6 +11,7 @@ import PayScreen from './pages/Customer/PayScreen';
 import PickupScreen from './pages/Customer/PickupScreen';
 import CartScreen from './pages/Customer/CartScreen';
 import Dashboard from './pages/ShopOwner/Dashboard';
+import ShopOwnerMenuScreen from './pages/ShopOwner/Menu';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,7 @@ export default function App() {
           <Stack.Screen name="Pickup" component={PickupScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Cart" component={CartScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
+          <Stack.Screen name="ShopOwnerMenu" component={ShopOwnerMenuScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>

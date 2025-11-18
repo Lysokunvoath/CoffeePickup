@@ -1,17 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity } from 'react-native';
-import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Dashboard = () => {
   return (
-    <ScrollView style={styles.container}>
-      <Header />
-      <OwnerDashboard />
-      <IncomingOrders />
-      <ReadyForPickup />
-      <MenuManagement />
-      <Payouts />
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={styles.container}>
+        <Header />
+        <OwnerDashboard />
+        <IncomingOrders />
+        <ReadyForPickup />
+        <MenuManagement />
+        <Payouts />
+      </ScrollView>
+      <BottomNavBar />
+    </View>
   );
 };
 
@@ -191,7 +195,6 @@ const Payouts = () => (
       <View style={styles.payoutRow}>
         <View>
           <Text style={styles.payoutTitle}>PayWay status</Text>
-          <Text style={styles.payoutDetails}>3D Secure required on high-risk payments</Text>
         </View>
         <View style={styles.connectedChip}>
           <Text style={styles.connectedText}>Connected</Text>
@@ -200,6 +203,34 @@ const Payouts = () => (
     </View>
   </View>
 );
+
+const BottomNavBar = () => {
+  const navigation = useNavigation();
+  return (
+  <View style={styles.navBar}>
+    <TouchableOpacity style={styles.navItem}>
+      <MaterialIcons name="dashboard" size={24} color="#8B4513" />
+      <Text style={styles.navText}>Dashboard</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerMenu' as never)}>
+      <MaterialIcons name="menu-book" size={24} color="grey" />
+      <Text style={styles.navText}>Menu</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.navItem}>
+      <MaterialIcons name="receipt-long" size={24} color="grey" />
+      <Text style={styles.navText}>Order</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.navItem}>
+      <MaterialIcons name="bar-chart" size={24} color="grey" />
+      <Text style={styles.navText}>Report</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.navItem}>
+      <MaterialIcons name="person" size={24} color="grey" />
+      <Text style={styles.navText}>Profile</Text>
+    </TouchableOpacity>
+  </View>
+  )
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -499,6 +530,21 @@ const styles = StyleSheet.create({
   connectedText: {
     color: '#8B4513',
     fontWeight: 'bold',
+  },
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#E0E0E0',
+    backgroundColor: 'white',
+  },
+  navItem: {
+    alignItems: 'center',
+  },
+  navText: {
+    fontSize: 12,
+    color: 'grey',
   },
 });
 
