@@ -12,6 +12,8 @@ import PickupScreen from './pages/Customer/PickupScreen';
 import CartScreen from './pages/Customer/CartScreen';
 import Dashboard from './pages/ShopOwner/Dashboard';
 import ShopOwnerMenuScreen from './pages/ShopOwner/Menu';
+import ProfileScreen from './pages/ShopOwner/Profile';
+import CusProfileScreen from './pages/Customer/CusProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +71,8 @@ export default function App() {
           <Stack.Screen name="Cart" component={CartScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
           <Stack.Screen name="ShopOwnerMenu" component={ShopOwnerMenuScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="ShopOwnerProfile" component={ProfileScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="CusProfile" component={CusProfileScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>

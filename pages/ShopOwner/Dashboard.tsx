@@ -224,7 +224,7 @@ const BottomNavBar = () => {
       <MaterialIcons name="bar-chart" size={24} color="grey" />
       <Text style={styles.navText}>Report</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={styles.navItem}>
+    <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerProfile' as never)}>
       <MaterialIcons name="person" size={24} color="grey" />
       <Text style={styles.navText}>Profile</Text>
     </TouchableOpacity>

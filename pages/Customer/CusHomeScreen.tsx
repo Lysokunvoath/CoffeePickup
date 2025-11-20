@@ -110,7 +110,10 @@ export default function CusHomeScreen({ navigation }: { navigation: any }) {
           <Feather name="shopping-cart" size={24} color="#8B4513" />
           <Text style={styles.navBarText}>Cart</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navBarItem}>
+        <TouchableOpacity
+          style={styles.navBarItem}
+          onPress={() => navigation.navigate('CusProfile')}
+        >
           <Feather name="user" size={24} color="#8B4513" />
           <Text style={styles.navBarText}>Profile</Text>
         </TouchableOpacity>

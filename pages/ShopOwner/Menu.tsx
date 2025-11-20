@@ -124,7 +124,7 @@ const Menu = () => {
 
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <MaterialCommunityIcons name="mug-hot" size={24} color="black" />
+            <MaterialCommunityIcons name="coffee" size={24} color="black" />
             <Text style={styles.sectionTitle}>Hot Drinks</Text>
           </View>
           {menuItems.hot.map((item, index) => (
@@ -208,7 +208,7 @@ const BottomNavBar = () => {
         <MaterialIcons name="bar-chart" size={24} color="grey" />
         <Text style={styles.navText}>Report</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navItem}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerProfile' as never)}>
         <MaterialIcons name="person" size={24} color="grey" />
         <Text style={styles.navText}>Profile</Text>
       </TouchableOpacity>
