@@ -14,6 +14,7 @@ import Dashboard from './pages/ShopOwner/Dashboard';
 import ShopOwnerMenuScreen from './pages/ShopOwner/Menu';
 import ProfileScreen from './pages/ShopOwner/Profile';
 import CusProfileScreen from './pages/Customer/CusProfile';
+import ReportScreen from './pages/ShopOwner/Report';
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +73,7 @@ export default function App() {
           <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
           <Stack.Screen name="ShopOwnerMenu" component={ShopOwnerMenuScreen} options={{ headerShown: false }} />
           <Stack.Screen name="ShopOwnerProfile" component={ProfileScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="ShopOwnerReport" component={ReportScreen} options={{ headerShown: false }} />
           <Stack.Screen name="CusProfile" component={CusProfileScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>

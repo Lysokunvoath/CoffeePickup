@@ -7,7 +7,7 @@ export default function LandingScreen({ navigation }: { navigation: any }) {
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.logoContainer}>
-          <Image source={require('../assets/Icon.png')} style={styles.logo} />
+          <Image source={require('../assets/icon.png')} style={styles.logo} />
           <Text style={styles.logoText}>Coffee Pickup</Text>
         </View>
         <Text style={styles.title}>Pick up better coffee</Text>

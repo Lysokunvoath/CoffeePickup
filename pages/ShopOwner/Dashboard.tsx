@@ -220,7 +220,7 @@ const BottomNavBar = () => {
       <MaterialIcons name="receipt-long" size={24} color="grey" />
       <Text style={styles.navText}>Order</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={styles.navItem}>
+    <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerReport' as never)}>
       <MaterialIcons name="bar-chart" size={24} color="grey" />
       <Text style={styles.navText}>Report</Text>
     </TouchableOpacity>
