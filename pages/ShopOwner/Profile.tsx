@@ -123,7 +123,7 @@ const BottomNavBar = () => {
         <MaterialIcons name="menu-book" size={24} color="grey" />
         <Text style={styles.navText}>Menu</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navItem}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerOrder' as never)}>
         <MaterialIcons name="receipt-long" size={24} color="grey" />
         <Text style={styles.navText}>Order</Text>
       </TouchableOpacity>
@@ -131,7 +131,7 @@ const BottomNavBar = () => {
         <MaterialIcons name="bar-chart" size={24} color="grey" />
         <Text style={styles.navText}>Report</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navItem} >
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ShopOwnerProfile' as never)}>
         <MaterialIcons name="person" size={24} color="#8B4513" />
         <Text style={styles.navText}>Profile</Text>
       </TouchableOpacity>
