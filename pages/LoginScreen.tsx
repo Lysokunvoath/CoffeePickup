@@ -36,7 +36,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.option} key="owner">
-                    <Text style={styles.optionTitle}>Coffee Shop Owner</Text>
+                    <Text style={styles.optionTitle}>Shop Owner</Text>
                     <Text style={styles.optionSubtitle}>Manage menu, accept orders, payouts.</Text>
                     <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('Dashboard')}>
                         <Text style={styles.signInButtonText}>Sign in as Owner</Text>
@@ -45,7 +45,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
                 <View style={styles.option} key="admin">
                     <Text style={styles.optionTitle}>Admin</Text>
                     <Text style={styles.optionSubtitle}>Monitor performance, users, and shops.</Text>
-                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('CusHome')}>
+                    <TouchableOpacity style={styles.signInButton} onPress={() => navigation.navigate('AdDashboard')}>
                         <Text style={styles.signInButtonText}>Sign in as Admin</Text>
                     </TouchableOpacity>
                 </View>

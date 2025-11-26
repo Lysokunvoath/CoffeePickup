@@ -101,7 +101,7 @@ const ShopOwnerProfile = () => {
         <Text style={styles.version}>v1.0.0</Text>
       </View>
 
-      <TouchableOpacity style={styles.signOutButton}>
+      <TouchableOpacity style={styles.signOutButton} onPress={() => navigation.navigate('Login' as never)}>
         <Text style={styles.signOutText}>Sign Out</Text>
       </TouchableOpacity>
       <Text style={styles.footerText}>You can sign back in as Customer, Shop Owner, or Admin from Get Started.</Text>

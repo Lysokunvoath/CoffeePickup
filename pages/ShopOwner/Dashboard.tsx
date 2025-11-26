@@ -166,10 +166,10 @@ const MenuItem = ({ name, price, action, actionColor }: { name: string, price: s
       <Text style={styles.itemSubDetails}>{price}</Text>
     </View>
     <View style={styles.menuActions}>
-      <TouchableOpacity style={styles.editButton}>
+      <TouchableOpacity style={[styles.actionButtonBase, styles.editButton]}>
         <Text style={styles.editButtonText}>Edit</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.hideButton, { backgroundColor: actionColor }]}>
+      <TouchableOpacity style={[styles.actionButtonBase, styles.hideButton, { backgroundColor: actionColor }]}>
         <Text style={styles.hideButtonText}>{action}</Text>
       </TouchableOpacity>
     </View>
@@ -474,11 +474,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  editButton: {
-    backgroundColor: '#EFEBE8',
+  actionButtonBase: {
     borderRadius: 20,
     paddingVertical: 8,
-    paddingHorizontal: 20,
+    paddingHorizontal: 15, 
+    width: 90, 
+    alignItems: 'center', 
+    justifyContent: 'center',
+  },
+  editButton: {
+    backgroundColor: '#EFEBE8',
     marginRight: 10,
   },
   editButtonText: {
@@ -486,9 +491,6 @@ const styles = StyleSheet.create({
     color: '#8B4513',
   },
   hideButton: {
-    borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 20,
   },
   hideButtonText: {
     color: 'white',

@@ -16,6 +16,9 @@ import ProfileScreen from './pages/ShopOwner/Profile';
 import CusProfileScreen from './pages/Customer/CusProfile';
 import ReportScreen from './pages/ShopOwner/Report';
 import OrderScreen from './pages/ShopOwner/Order';
+import AdDashboard from './pages/Admin/AdDashboard';
+import AdPreview from './pages/Admin/Preview';
+import SignOutScreen from './pages/Admin/SignOutScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +80,9 @@ export default function App() {
           <Stack.Screen name="ShopOwnerReport" component={ReportScreen} options={{ headerShown: false }} />
           <Stack.Screen name="ShopOwnerOrder" component={OrderScreen} options={{ headerShown: false }} />
           <Stack.Screen name="CusProfile" component={CusProfileScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="AdDashboard" component={AdDashboard} options={{ headerShown: false }} />
+          <Stack.Screen name="AdPreview" component={AdPreview} options={{ headerShown: false }} />
+          <Stack.Screen name="SignOutScreen" component={SignOutScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>
